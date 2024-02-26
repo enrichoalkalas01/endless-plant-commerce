@@ -76,6 +76,7 @@ export default function page() {
             color: 'Black',
         },
     ])
+    
     return(
         <>
             <div className="bg-white">
