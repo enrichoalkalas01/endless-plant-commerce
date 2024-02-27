@@ -12,9 +12,9 @@ export default function page() {
                 <BreadCrumb />
             </div>
             <div className='py-4'>
-                <div className='grid grid-cols-2 gap-4 flex flex-row-reverse'>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-2'>
                     
-                    <div className='py-2'>
+                    <div className='py-2 sm:px-4'>
                         {/* Contact */}
                         <div>
                             <div>
@@ -178,7 +178,7 @@ export default function page() {
                                 </div>
                             </div>
 
-                            <div className='py-4'>
+                            <div className='py-4 flex justify-end'>
                                 <button
                                     type="submit"
                                     className="col-span-12 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -186,7 +186,7 @@ export default function page() {
                             </div>
                         </div>
                     </div>
-                    <div className=''>
+                    <div className='py-2 sm:px-4'>
                         <MiniCartDetail
                             Discount={50}
                             Shipping={0}
