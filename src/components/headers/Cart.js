@@ -5,6 +5,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector, useDispatch } from 'react-redux'
 import { SetCartStatus } from '@/redux/reducers/navbar'
+import Image from 'next/image'
 
 const products = [
     {
@@ -34,9 +35,13 @@ export default function Cart() {
     const store = useSelector((state) => state?.Navbar)
     const dispatch = useDispatch()
 
+    // useEffect(() => {
+    //     setOpen(store?.cartStatus)
+    // }, [])
+
     useEffect(() => {
         setOpen(store?.cartStatus)
-    }, [])
+    }, [store?.cartStatus])
 
     return(
         <>
@@ -96,11 +101,13 @@ export default function Cart() {
                                         {products.map((product) => (
                                         <li key={product.id} className="flex py-6">
                                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                            <img
-                                                src={product.imageSrc}
-                                                alt={product.imageAlt}
-                                                className="h-full w-full object-cover object-center"
-                                            />
+                                                <Image
+                                                    src={product.imageSrc}
+                                                    alt={product.imageAlt}
+                                                    width={50}
+                                                    height={50}
+                                                    className="h-full w-full object-cover object-center"
+                                                />
                                             </div>
 
                                             <div className="ml-4 flex flex-1 flex-col">

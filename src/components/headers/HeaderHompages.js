@@ -3,6 +3,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -32,7 +33,7 @@ export default function HeaderHomepage() {
         let newNavigation = []
         navigation.map(e => newNavigation.push({ name: e?.name, href: e?.href, current: window?.location?.pathname === e?.href ? true : false }))
         setNavigation(newNavigation)
-    }, [])
+    }, [navigation])
 
     return(
         <>
@@ -49,7 +50,7 @@ export default function HeaderHomepage() {
                                     <div className="flex items-center">
 
                                         <div className="flex-shrink-0">
-                                            <img
+                                            <Image width={50} height={50}
                                                 className="h-8 w-8"
                                                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                                                 alt="Your Company"
@@ -93,7 +94,7 @@ export default function HeaderHomepage() {
                                             <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                 <span className="absolute -inset-1.5" />
                                                 <span className="sr-only">Open user menu</span>
-                                                <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                                                <Image width={50} height={50} className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
                                             </Menu.Button>
                                             </div>
                                             <Transition
@@ -162,7 +163,7 @@ export default function HeaderHomepage() {
                                 <div className="border-t border-gray-700 pb-3 pt-4">
                                     <div className="flex items-center px-5">
                                         <div className="flex-shrink-0">
-                                        <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                                        <Image width={50} height={50} className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
                                         </div>
                                         <div className="ml-3">
                                         <div className="text-base font-medium leading-none text-white">{user.name}</div>

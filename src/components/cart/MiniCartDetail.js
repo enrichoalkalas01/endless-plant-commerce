@@ -11,19 +11,16 @@ export default function MiniCartDetail({
     SubTotal = 0, Tax  = 0, Shipping  = 0, Total = 0, TotalTax = 11,
     Discount = 0, Products = [],
 }) {
-    const [subtotal, setSubTotal] = useState(SubTotal)
-    const [tax, setTax] = useState(Tax)
-    const [totalTax, setTotalTax] = useState(TotalTax)
-    const [shipping, setShipping] = useState(Shipping)
-    const [total, setTotal] = useState(Total)
-    const [discount, setDiscount] = useState(Discount)
-    const [totalDiscount, setTotalDiscount] = useState(0)
-    const [products, setProducts] = useState(Products)
+    const [subtotal, setSubTotal] = useState(SubTotal || null)
+    const [tax, setTax] = useState(Tax || null)
+    const [totalTax, setTotalTax] = useState(TotalTax || null)
+    const [shipping, setShipping] = useState(Shipping || null)
+    const [total, setTotal] = useState(Total || null)
+    const [discount, setDiscount] = useState(Discount || null)
+    const [totalDiscount, setTotalDiscount] = useState(0 || null)
+    const [products, setProducts] = useState(Products || null)
     
     useEffect(() => {
-        // console.log(subtotal, tax, shipping, total)
-        // console.log(convertToRupiah(subtotal))
-
         if ( products?.length > 0 ) {
             let newTotal = 0
             products?.map((e) => newTotal += e?.price )
@@ -36,11 +33,7 @@ export default function MiniCartDetail({
             setTotalDiscount(newTotalFromDiscount)
             setTotal((newTotal + taxPercent) - newTotalFromDiscount + shipping)
         }
-    }, [])
-
-    useEffect(() => {
-        
-    }, [subtotal, total, tax, discount, shipping, products])
+    }, [subtotal, total, tax, discount, shipping, products, totalTax])
 
     return(
         <>

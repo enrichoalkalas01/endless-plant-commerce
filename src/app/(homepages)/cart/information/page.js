@@ -1,11 +1,16 @@
 "use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import BreadCrumb from '@/components/headers/breadcrumbs/BreadCrumb'
 import MiniCartDetail from '@/components/cart/MiniCartDetail'
 
-export default function page() {
-    
+export default function Page() {
+    const [breadCrumb, setBreadCrumb] = useState([
+        { id: 1, name: 'Cart', href: '/cart' },
+        { id: 2, name: 'Information', href: '/cart/information' },
+        { id: 3, name: 'Shipping', href: '/cart/information/shipping' },
+    ])
+
     return(
         <>
             <div>

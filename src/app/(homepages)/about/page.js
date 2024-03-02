@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import Image from 'next/image'
 
 const product = {
     name: 'Payment',
@@ -22,7 +23,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function page() {
+export default function Page() {
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
     return(
         <>
@@ -117,7 +118,8 @@ export default function page() {
                 <div className='py-4 px-4 rounded-md border border-gray-200'>
                     <div className='grid grid-cols-12 gap-6'>
                         {/* <div className='col-span-12 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 mx-auto'> */}
-                            <img
+                            <Image
+                                width={50} height={50}
                                 className="inline-block h-20 w-20 rounded ring-2 ring-white"
                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                 alt=""

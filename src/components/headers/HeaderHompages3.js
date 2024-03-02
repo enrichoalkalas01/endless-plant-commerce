@@ -5,6 +5,7 @@ import { Dialog, Popover, Tab, Transition, Disclosure, Menu } from '@headlessui/
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector, useDispatch } from 'react-redux'
 import { SetCartStatus } from '@/redux/reducers/navbar'
+import Image from 'next/image'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -41,12 +42,7 @@ export default function HeaderHomepages3() {
         navigation.map(e => newNavigation.push({ name: e?.name, href: e?.href, current: window?.location?.pathname === e?.href ? true : false }))
         setNavigation(newNavigation)
         console.log(store?.cartStatus)
-        
-    }, [])
-
-    useEffect(() => {
-        console.log(cart)
-    }, [cart])
+    }, [cart, navigation, store?.cartStatus])
 
     return(
         <>
@@ -73,7 +69,8 @@ export default function HeaderHomepages3() {
                                 <div className="ml-4 flex lg:ml-0">
                                     <a href="#">
                                         <span className="sr-only">Your Company</span>
-                                        <img
+                                        <Image
+                                            width={50} height={50}
                                             className="h-8 w-auto"
                                             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                                             alt=""

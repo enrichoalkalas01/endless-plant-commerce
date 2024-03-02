@@ -2,12 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-export default function BreadCrumb() {
-    const [breadCrumb, setBreadCrumb] = useState([
-        { id: 1, name: 'Cart', href: '/cart' },
-        { id: 2, name: 'Information', href: '/information' },
-        // { id: 3, name: 'Shipping', href: '/shipping' },
-    ])
+export default function BreadCrumb({ breadCrumb = [] }) {
 
     return(
         <>

@@ -1,5 +1,7 @@
 "use client"
 
+import Image from 'next/image'
+
 function convertToRupiah(number) {
     const rupiahFormat = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number);
     return rupiahFormat.replace("IDR", "Rp");
@@ -9,7 +11,8 @@ export default function MiniProductCart({ TitleProduct = null, ThumbnailProduct 
     return(
         <>
             <div className='grid grid-cols-6 gap-2 flex items-center'>
-                <img
+                <Image
+                    width={50} height={50}
                     className="inline-block h-auto w-auto rounded ring-2 ring-white"
                     src={ ThumbnailProduct ? ThumbnailProduct : "" }
                     alt={ TitleProduct ? TitleProduct : "" }
